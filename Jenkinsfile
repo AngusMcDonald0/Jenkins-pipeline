@@ -32,7 +32,7 @@ pipeline {
                     mail to: "angusmcdonald13@gmail.com",
                     subject: "Security scan",
                     body: "David might be wrong",
-                    emailext attachLog: true
+                    emailext attachLog : true
                 }
             }
         }
