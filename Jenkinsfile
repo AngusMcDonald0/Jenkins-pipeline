@@ -31,7 +31,7 @@ pipeline {
                 success {
                     mail to: "angusmcdonald13@gmail.com",
                     subject: "Security scan",
-                    body: "David might be wrong"
+                    body: "David might be wrong",
                     attachLog: true
                 }
             }
