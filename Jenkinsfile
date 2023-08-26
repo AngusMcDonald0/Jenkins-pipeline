@@ -12,8 +12,8 @@ pipeline {
             }
             post {
                 success {
+                    emailext(attachLog: true),
                     mail to: "angusmcdonald13@gmail.com",
-                    attachLog: true,
                     subject: "Security scan",
                     body: "Tests successful"
                 }
@@ -30,8 +30,8 @@ pipeline {
             }
             post {
                 success {
+                    emailext(attachLog: true),
                     mail to: "angusmcdonald13@gmail.com",
-                    attachLog: true,
                     subject: "Security scan",
                     body: "Scan successful"
                 }
