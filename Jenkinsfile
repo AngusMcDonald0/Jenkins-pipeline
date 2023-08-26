@@ -13,7 +13,7 @@ pipeline {
             post {
                 success {
                     mail to: "angusmcdonald13@gmail.com",
-                    subject: "Security scan",
+                    subject: "Unit and Integration Tests",
                     body: "Tests successful"
                 }
             }
@@ -31,7 +31,8 @@ pipeline {
                 success {
                     mail to: "angusmcdonald13@gmail.com",
                     subject: "Security scan",
-                    body: "${build.logFile.text.readlines()}"
+                    body: "David might be wrong"
+                    attachLog: true
                 }
             }
         }
