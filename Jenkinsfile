@@ -31,7 +31,7 @@ pipeline {
                 success {
                     mail to: "angusmcdonald13@gmail.com",
                     subject: "Security scan",
-                    body: "Scan successful"
+                    body: '${BUILD_LOG, maxLines=9999, escapeHtml=false}'
                 }
             }
         }
