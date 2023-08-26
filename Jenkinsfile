@@ -12,9 +12,16 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "angusmcdonald13@gmail.com",
+                    emailext to: "angusmcdonald13@gmail.com",
                     subject: "Unit and Integration Tests",
-                    body: "Tests successful"
+                    body: "Tests successful",
+                    attachLog: true
+                }
+                failure {
+                    emailext to: "angusmcdonald13@gmail.com",
+                    subject: "Unit and Integration Tests",
+                    body: "Tests failed",
+                    attachLog: true
                 }
             }
         }
@@ -32,6 +39,12 @@ pipeline {
                     emailext to: "angusmcdonald13@gmail.com",
                     subject: "Security scan",
                     body: "Scans successful",
+                    attachLog: true
+                }
+                failure {
+                    emailext to: "angusmcdonald13@gmail.com",
+                    subject: "Security scan",
+                    body: "Scans failed",
                     attachLog: true
                 }
             }
