@@ -31,7 +31,7 @@ pipeline {
                 success {
                     mail to: "angusmcdonald13@gmail.com",
                     subject: "Security scan",
-                    body: "${build.logFile.text.readlines()}",
+                    body: "${build.logFile.text.readlines()}"
                 }
             }
         }
