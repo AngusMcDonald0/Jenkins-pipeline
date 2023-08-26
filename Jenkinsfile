@@ -29,10 +29,11 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "angusmcdonald13@gmail.com",
-                    subject: "Security scan",
-                    body: 'david might be wrong',
-                    attachLog: true
+                    emailext(attachLog: true, body: '', subject: '', mail to: "angusmcdonald13@gmail.com")
+                    // mail to: "angusmcdonald13@gmail.com",
+                    // subject: "Security scan",
+                    // body: 'david might be wrong',
+                    // attachLog: true
                 }
             }
         }
