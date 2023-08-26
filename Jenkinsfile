@@ -3,34 +3,53 @@ pipeline {
     stages {
         stage("Build") {
             steps { 
-                echo "Fetch the source code from the directory path specified by the environment variable"
-                echo "Compile the code and generate any necessary artifacts"
+                echo "Build autometed with Maven"
             }
         }
-        stage("Test") {
+        stage("Unit and Integration Tests") {
             steps { 
-                echo "Unit tests"
-                echo "Integration tests"
+                echo "Automated tests with Selenium"
+            }
+            post {
+                success {
+                    mail to: "angusmcdonald13@gmail.com",
+                    attachLog: true,
+                    subject: "Security scan",
+                    body: "Tests successful"
+                }
             }
         }
-        stage("Code Quality Test") {
+        stage("Code Analysis") {
             steps { 
-                echo "Check the quality of the code"
+                echo "Check the quality of the code with jenkins plugin for CheckStyle"
             }
         }
-        stage("Deploy") {
+        stage("Security Scan") {
             steps { 
-                echo "deploy the application to a testing environment specified by the environment variable"
+                echo "code scanned with CodeQL to identify vulnerabilities"
+            }
+            post {
+                success {
+                    mail to: "angusmcdonald13@gmail.com",
+                    attachLog: true,
+                    subject: "Security scan",
+                    body: "Scan successful"
+                }
             }
         }
-        stage("Approval") {
+        stage("Deploy to Staging") {
             steps { 
-                echo "approval"
+                echo "Code deployed to staging server"
+            }
+        }
+        stage("Integration Tests on Staging") {
+            steps { 
+                echo "Integration tests run"
             }
         }
         stage("Deploy to Production") {
             steps { 
-                echo "Code deployed"
+                echo "Code deployed to production server"
             }
         }
     }
